@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-   
+    @StateObject var manager : AppManager = AppManager()
     var body: some View {
-       Text("ContentView")
+       WelcomePage()
+            .environmentObject(manager)
+       
       
     }
 }

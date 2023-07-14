@@ -10,10 +10,11 @@ import Foundation
 class AppManager: ObservableObject {
     @Published var account: User
     @Published var organization: Organization
-    
+    @Published var db : DatabaseService
     init(email: String, orgName: String) {
         account = User.empty
         organization = Organization.empty
+        db = DatabaseService()
         
         Task.detached {
             await self.loadInfo(email: email, orgName: orgName)
@@ -22,6 +23,7 @@ class AppManager: ObservableObject {
     init(){
         account = User.empty
         organization = Organization.empty
+        db = DatabaseService()
     }
     
     private func loadInfo(email: String, orgName: String)async{

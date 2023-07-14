@@ -9,8 +9,8 @@ import Foundation
 
 struct Organization : Codable, Identifiable{
     let id = UUID()
-    let name : String
-    let description : String
+    var name : String
+    var description : String
     var owner : User
     private enum CodingKeys: String, CodingKey {
         case name

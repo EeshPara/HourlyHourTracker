@@ -46,6 +46,12 @@
 		AFCDE0832A5F5FC8009227F9 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0822A5F5FC8009227F9 /* TestingView.swift */; };
 		AFCDE0852A5F64DD009227F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFCDE0842A5F64DC009227F9 /* GoogleService-Info.plist */; };
 		AFCDE0882A5F726D009227F9 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0872A5F726C009227F9 /* AppManager.swift */; };
+		AFCDE08B2A603C71009227F9 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE08A2A603C71009227F9 /* WelcomePage.swift */; };
+		AFCDE08D2A603D83009227F9 /* SignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE08C2A603D83009227F9 /* SignUpPage.swift */; };
+		AFCDE08F2A603E8C009227F9 /* OrganizationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE08E2A603E8C009227F9 /* OrganizationPage.swift */; };
+		AFCDE0912A603F04009227F9 /* JoinOrganizationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0902A603F04009227F9 /* JoinOrganizationPage.swift */; };
+		AFCDE0932A603F37009227F9 /* CreateOrganizationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0922A603F36009227F9 /* CreateOrganizationPage.swift */; };
+		AFCDE0982A6046BF009227F9 /* sf-pro-display-cufonfonts in Resources */ = {isa = PBXBuildFile; fileRef = AFCDE0972A6046BE009227F9 /* sf-pro-display-cufonfonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +87,13 @@
 		AFCDE0822A5F5FC8009227F9 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		AFCDE0842A5F64DC009227F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AFCDE0872A5F726C009227F9 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		AFCDE08A2A603C71009227F9 /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
+		AFCDE08C2A603D83009227F9 /* SignUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPage.swift; sourceTree = "<group>"; };
+		AFCDE08E2A603E8C009227F9 /* OrganizationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationPage.swift; sourceTree = "<group>"; };
+		AFCDE0902A603F04009227F9 /* JoinOrganizationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinOrganizationPage.swift; sourceTree = "<group>"; };
+		AFCDE0922A603F36009227F9 /* CreateOrganizationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrganizationPage.swift; sourceTree = "<group>"; };
+		AFCDE0972A6046BE009227F9 /* sf-pro-display-cufonfonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "sf-pro-display-cufonfonts"; sourceTree = "<group>"; };
+		AFCDE0992A60470F009227F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +171,8 @@
 		AFCDE0182A5F5C4B009227F9 /* HourlyHourTracker */ = {
 			isa = PBXGroup;
 			children = (
+				AFCDE0992A60470F009227F9 /* Info.plist */,
+				AFCDE0962A6045BE009227F9 /* Fonts */,
 				AFCDE0862A5F7258009227F9 /* ViewModel */,
 				AFCDE07D2A5F5ED8009227F9 /* View */,
 				AFCDE07C2A5F5ED3009227F9 /* Model */,
@@ -207,6 +222,7 @@
 		AFCDE07D2A5F5ED8009227F9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AFCDE0892A603C40009227F9 /* Onboarding */,
 				AFCDE0822A5F5FC8009227F9 /* TestingView.swift */,
 			);
 			path = View;
@@ -218,6 +234,26 @@
 				AFCDE0872A5F726C009227F9 /* AppManager.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AFCDE0892A603C40009227F9 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AFCDE08A2A603C71009227F9 /* WelcomePage.swift */,
+				AFCDE08C2A603D83009227F9 /* SignUpPage.swift */,
+				AFCDE08E2A603E8C009227F9 /* OrganizationPage.swift */,
+				AFCDE0902A603F04009227F9 /* JoinOrganizationPage.swift */,
+				AFCDE0922A603F36009227F9 /* CreateOrganizationPage.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		AFCDE0962A6045BE009227F9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AFCDE0972A6046BE009227F9 /* sf-pro-display-cufonfonts */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFCDE0212A5F5C52009227F9 /* Preview Assets.xcassets in Resources */,
+				AFCDE0982A6046BF009227F9 /* sf-pro-display-cufonfonts in Resources */,
 				AFCDE01E2A5F5C52009227F9 /* Assets.xcassets in Resources */,
 				AFCDE0852A5F64DD009227F9 /* GoogleService-Info.plist in Resources */,
 			);
@@ -383,12 +420,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFCDE0932A603F37009227F9 /* CreateOrganizationPage.swift in Sources */,
 				AFCDE01C2A5F5C4B009227F9 /* ContentView.swift in Sources */,
 				AFCDE0832A5F5FC8009227F9 /* TestingView.swift in Sources */,
 				AFCDE07F2A5F5EED009227F9 /* BaseStructs.swift in Sources */,
 				AFCDE0882A5F726D009227F9 /* AppManager.swift in Sources */,
+				AFCDE08B2A603C71009227F9 /* WelcomePage.swift in Sources */,
+				AFCDE08F2A603E8C009227F9 /* OrganizationPage.swift in Sources */,
 				AFCDE0812A5F5F5B009227F9 /* DataBaseService.swift in Sources */,
+				AFCDE08D2A603D83009227F9 /* SignUpPage.swift in Sources */,
 				AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */,
+				AFCDE0912A603F04009227F9 /* JoinOrganizationPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +592,7 @@
 				DEVELOPMENT_TEAM = 3TWD3N634U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HourlyHourTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -579,6 +622,7 @@
 				DEVELOPMENT_TEAM = 3TWD3N634U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HourlyHourTracker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
