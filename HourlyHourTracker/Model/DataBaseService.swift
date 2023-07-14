@@ -86,6 +86,20 @@ struct DatabaseService {
         }
     }
     
+    
+        func signIn(email: String, password: String) async throws -> Bool {
+            do {
+                let authResult = try await Auth.auth().signIn(withEmail: email, password: password)
+                return true // Sign-in successful, return true
+            } catch {
+                // Handle any errors that occurred during sign-in
+                print("Sign-in error: \(error.localizedDescription)")
+                return false // Sign-in failed, return false
+            }
+        }
+    
+    
+    
     //creates an originazation under the orginzation collection in cloud Firestore
     func createOrganization(org : Organization){
         // turning the org into a Json String

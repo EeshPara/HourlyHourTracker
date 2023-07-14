@@ -41,7 +41,7 @@ struct WelcomePage: View {
                 }
                 //signin link
                 NavigationLink{
-                   // SignInPage()
+                    SignInPage()
                 } label: {
                     Text("Already have an account? Sign In.")
                         .foregroundColor(.black)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AFB01EE82A6197E400D1D721 /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB01EE72A6197E400D1D721 /* SignInPage.swift */; };
 		AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0192A5F5C4B009227F9 /* HourlyHourTrackerApp.swift */; };
 		AFCDE01C2A5F5C4B009227F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE01B2A5F5C4B009227F9 /* ContentView.swift */; };
 		AFCDE01E2A5F5C52009227F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFCDE01D2A5F5C52009227F9 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AFB01EE72A6197E400D1D721 /* SignInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
 		AFCDE0162A5F5C4B009227F9 /* HourlyHourTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HourlyHourTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCDE0192A5F5C4B009227F9 /* HourlyHourTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyHourTrackerApp.swift; sourceTree = "<group>"; };
 		AFCDE01B2A5F5C4B009227F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				AFCDE08E2A603E8C009227F9 /* OrganizationPage.swift */,
 				AFCDE0902A603F04009227F9 /* JoinOrganizationPage.swift */,
 				AFCDE0922A603F36009227F9 /* CreateOrganizationPage.swift */,
+				AFB01EE72A6197E400D1D721 /* SignInPage.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				AFCDE08B2A603C71009227F9 /* WelcomePage.swift in Sources */,
 				AFCDE08F2A603E8C009227F9 /* OrganizationPage.swift in Sources */,
 				AFCDE0812A5F5F5B009227F9 /* DataBaseService.swift in Sources */,
+				AFB01EE82A6197E400D1D721 /* SignInPage.swift in Sources */,
 				AFCDE08D2A603D83009227F9 /* SignUpPage.swift in Sources */,
 				AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */,
 				AFCDE0912A603F04009227F9 /* JoinOrganizationPage.swift in Sources */,
