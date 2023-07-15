@@ -92,5 +92,6 @@ struct CreateOrganizationPage: View {
 struct CreateOrganizationPage_Previews: PreviewProvider {
     static var previews: some View {
         CreateOrganizationPage()
+            .environmentObject(AppManager())
     }
 }

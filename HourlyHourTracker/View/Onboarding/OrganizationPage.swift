@@ -72,5 +72,6 @@ struct OrganizationPage: View {
 struct OrganizationPage_Previews: PreviewProvider {
     static var previews: some View {
         OrganizationPage()
+            .environmentObject(AppManager())
     }
 }

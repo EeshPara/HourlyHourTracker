@@ -149,5 +149,6 @@ struct SignInPage: View {
 struct SignInPage_Previews: PreviewProvider {
     static var previews: some View {
         SignInPage()
+            .environmentObject(AppManager())
     }
 }

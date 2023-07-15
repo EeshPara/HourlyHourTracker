@@ -7,7 +7,17 @@
 
 import Foundation
 
-struct Organization : Codable, Identifiable{
+struct Organization : Codable, Identifiable, Hashable{
+    
+    func hash(into hasher: inout Hasher) {
+           hasher.combine(name)
+       }
+    
+    static func == (lhs: Organization, rhs: Organization) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
+    
     let id = UUID()
     var name : String
     var description : String

@@ -11,6 +11,14 @@ struct JoinOrganizationPage: View {
     @EnvironmentObject var manager : AppManager
     @State private var organizations = [Organization]()
     @State private var navigate = false
+    @State private var searchText = ""
+    @State private var isExpanded = false
+    @State private var selectedOrganization: Organization?
+    private var filteredItems: [Organization] {
+            searchText.isEmpty ? organizations : organizations.filter {
+                $0.name.localizedCaseInsensitiveContains(searchText)
+            }
+        }
     var body: some View {
         NavigationStack
         {
@@ -22,21 +30,50 @@ struct JoinOrganizationPage: View {
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .multilineTextAlignment(.leading)
+                    .padding(.vertical)
+                Text("Browse Organizations")
+                    .font(Font.custom("SF-Pro-Display-Bold", size: 30))
                     .padding(.top)
-                HStack{
-                    Menu("Organizations", content: {
-                        ForEach(organizations){ organization in
-                            Button(organization.name){
-                                manager.account.organizationName = organization.name
-                            }
-                            
-                        }
-                    })
-                    .padding()
-                    Text(": \( manager.account.organizationName)")
-                }
-                .padding()
-                    
+                DisclosureGroup(
+                                isExpanded: $isExpanded,
+                                content: {
+                                    VStack {
+                                        SearchBar(searchText: $searchText)
+                                        
+                                        ForEach(filteredItems, id: \.self) { item in
+                                            Button(action: {
+                                                selectedOrganization = item
+                                                isExpanded.toggle()
+                                                // Perform action when item is selected
+                                            }) {
+                                                Text(item.name)
+                                                    .foregroundColor(.primary)
+                                                    .padding(.vertical, 8)
+                                            }
+                                        }
+                                    }
+                                    .padding(.horizontal, 20)
+                                    .padding(.bottom, 10)
+                                },
+                                label: {
+                                    HStack {
+                                        Text(" \(selectedOrganization?.name ?? "Select an option")")
+                                            .foregroundColor(.primary)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                        
+                                        Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                                            .foregroundColor(.primary)
+                                    }
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 16)
+                                    .background(Color.secondary.opacity(0.2))
+                                    .cornerRadius(8)
+                                }
+                )
+                .frame(width: 308.0)
+                
+//                Text("OR")
+//                    .foregroundColor(Color("burntsienna"))
                 Spacer()
                 Button {
                     manager.db.signUpUser(user: manager.account)
@@ -77,9 +114,19 @@ struct JoinOrganizationPage: View {
     }
     
 }
+struct SearchBar: View {
+    @Binding var searchText: String
+    
+    var body: some View {
+        TextField("Search", text: $searchText)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding(.horizontal, 10)
+    }
+}
 
 struct JoinOrganizationPage_Previews: PreviewProvider {
     static var previews: some View {
         JoinOrganizationPage()
+            .environmentObject(AppManager())
     }
 }
