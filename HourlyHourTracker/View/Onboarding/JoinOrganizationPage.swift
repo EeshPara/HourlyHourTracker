@@ -12,8 +12,10 @@ struct JoinOrganizationPage: View {
     @State private var organizations = [Organization]()
     @State private var navigate = false
     @State private var searchText = ""
+    @State private var itemName = ""
     @State private var isExpanded = true
     @State private var selectedOrganization: Organization?
+    @State private var color : Color = .black
     private var filteredItems: [Organization] {
             searchText.isEmpty ? organizations : organizations.filter {
                 $0.name.localizedCaseInsensitiveContains(searchText)
@@ -34,24 +36,34 @@ struct JoinOrganizationPage: View {
                 Text("Browse Organizations")
                     .font(Font.custom("SF-Pro-Display-Bold", size: 30))
                     .padding(.top)
-                SearchBar(searchText: $searchText)
+                SearchBar(searchText: $searchText, color: $color, isExpanded: $isExpanded, itemName: $itemName)
                     .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 DisclosureGroup(
                                 isExpanded: $isExpanded,
                                 content: {
                                     VStack {
                                         
-                                        
-                                        ForEach(filteredItems, id: \.self) { item in
-                                            Button(action: {
-                                                selectedOrganization = item
-                                                isExpanded.toggle()
-                                                searchText = item.name
-                                                // Perform action when item is selected
-                                            }) {
-                                                Text(item.name)
-                                                    .foregroundColor(.primary)
-                                                    .padding(.vertical, 8)
+                                        if (filteredItems.isEmpty)
+                                        {
+                                            Text("No items found")
+                                                .foregroundColor(.primary)
+                                                .padding(.vertical, 8)
+                                        }
+                                        else
+                                        {
+                                            ForEach(filteredItems, id: \.self) { item in
+                                                Button(action: {
+                                                    selectedOrganization = item
+                                                    isExpanded.toggle()
+                                                    searchText = item.name
+                                                    itemName = item.name
+                                                    color = .blue
+                                                    // Perform action when item is selected
+                                                }) {
+                                                    Text(item.name)
+                                                        .foregroundColor(.primary)
+                                                        .padding(.vertical, 8)
+                                                }
                                             }
                                         }
                                     }
@@ -119,7 +131,9 @@ struct JoinOrganizationPage: View {
 }
 struct SearchBar: View {
     @Binding var searchText: String
-    
+    @Binding var color : Color
+    @Binding var isExpanded : Bool
+    @Binding var itemName : String
     var body: some View {
         TextField("Search", text: $searchText)
             .padding(.horizontal, 10)
@@ -129,7 +143,13 @@ struct SearchBar: View {
                     .foregroundColor(/*@START_MENU_TOKEN@*/Color("lightgrey1")/*@END_MENU_TOKEN@*/)
                     .opacity(0.5)
                 )
-            .foregroundColor(.black)
+            .foregroundColor(color)
+            .onChange(of: searchText) { newValue in
+                            if newValue != "" && !isExpanded && newValue != itemName{
+                                isExpanded = true
+                                color = .black
+                            }
+                        }
     }
 }
 
