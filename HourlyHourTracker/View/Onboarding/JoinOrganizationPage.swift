@@ -71,18 +71,6 @@ struct JoinOrganizationPage: View {
                                     .padding(.bottom, 10)
                                 },
                                 label: {
-//                                    HStack {
-//                                        Text(" \(selectedOrganization?.name ?? "Select an option")")
-//                                            .foregroundColor(.primary)
-//                                            .frame(maxWidth: .infinity, alignment: .leading)
-//
-//                                        Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-//                                            .foregroundColor(.primary)
-//                                    }
-//                                    .padding(.vertical, 10)
-//                                    .padding(.horizontal, 16)
-//                                    .background(Color.secondary.opacity(0.2))
-//                                    .cornerRadius(8)
                                 }
                 )
                 .frame(width: 308.0)
