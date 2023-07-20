@@ -12,8 +12,10 @@ struct JoinOrganizationPage: View {
     @State private var organizations = [Organization]()
     @State private var navigate = false
     @State private var searchText = ""
-    @State private var isExpanded = false
+    @State private var itemName = ""
+    @State private var isExpanded = true
     @State private var selectedOrganization: Organization?
+    @State private var color : Color = .black
     private var filteredItems: [Organization] {
             searchText.isEmpty ? organizations : organizations.filter {
                 $0.name.localizedCaseInsensitiveContains(searchText)
@@ -34,21 +36,34 @@ struct JoinOrganizationPage: View {
                 Text("Browse Organizations")
                     .font(Font.custom("SF-Pro-Display-Bold", size: 30))
                     .padding(.top)
+                SearchBar(searchText: $searchText, color: $color, isExpanded: $isExpanded, itemName: $itemName)
+                    .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
                 DisclosureGroup(
                                 isExpanded: $isExpanded,
                                 content: {
                                     VStack {
-                                        SearchBar(searchText: $searchText)
                                         
-                                        ForEach(filteredItems, id: \.self) { item in
-                                            Button(action: {
-                                                selectedOrganization = item
-                                                isExpanded.toggle()
-                                                // Perform action when item is selected
-                                            }) {
-                                                Text(item.name)
-                                                    .foregroundColor(.primary)
-                                                    .padding(.vertical, 8)
+                                        if (filteredItems.isEmpty)
+                                        {
+                                            Text("No items found")
+                                                .foregroundColor(.primary)
+                                                .padding(.vertical, 8)
+                                        }
+                                        else
+                                        {
+                                            ForEach(filteredItems, id: \.self) { item in
+                                                Button(action: {
+                                                    selectedOrganization = item
+                                                    isExpanded.toggle()
+                                                    searchText = item.name
+                                                    itemName = item.name
+                                                    color = .blue
+                                                    // Perform action when item is selected
+                                                }) {
+                                                    Text(item.name)
+                                                        .foregroundColor(.primary)
+                                                        .padding(.vertical, 8)
+                                                }
                                             }
                                         }
                                     }
@@ -56,18 +71,6 @@ struct JoinOrganizationPage: View {
                                     .padding(.bottom, 10)
                                 },
                                 label: {
-                                    HStack {
-                                        Text(" \(selectedOrganization?.name ?? "Select an option")")
-                                            .foregroundColor(.primary)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                        
-                                        Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                                            .foregroundColor(.primary)
-                                    }
-                                    .padding(.vertical, 10)
-                                    .padding(.horizontal, 16)
-                                    .background(Color.secondary.opacity(0.2))
-                                    .cornerRadius(8)
                                 }
                 )
                 .frame(width: 308.0)
@@ -108,7 +111,7 @@ struct JoinOrganizationPage: View {
             if org != nil{
                 organizations.append(org!)
             } else{
-                print(" Errror in Join Organization Page linne 62 the Organization was nil")
+                print(" Error in Join Organization Page line 62 the Organization was nil")
             }
         }
     }
@@ -116,11 +119,25 @@ struct JoinOrganizationPage: View {
 }
 struct SearchBar: View {
     @Binding var searchText: String
-    
+    @Binding var color : Color
+    @Binding var isExpanded : Bool
+    @Binding var itemName : String
     var body: some View {
         TextField("Search", text: $searchText)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding(.horizontal, 10)
+            .frame(width: 308.0, height: 50.0)
+            .background(
+                RoundedRectangle(cornerRadius: 30)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/Color("lightgrey1")/*@END_MENU_TOKEN@*/)
+                    .opacity(0.5)
+                )
+            .foregroundColor(color)
+            .onChange(of: searchText) { newValue in
+                            if newValue != "" && !isExpanded && newValue != itemName{
+                                isExpanded = true
+                                color = .black
+                            }
+                        }
     }
 }
 

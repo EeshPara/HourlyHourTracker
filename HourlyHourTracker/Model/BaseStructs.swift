@@ -22,17 +22,28 @@ struct Organization : Codable, Identifiable, Hashable{
     var name : String
     var description : String
     var owner : User
+    var users : [User]
     private enum CodingKeys: String, CodingKey {
         case name
         case description
         case owner
-
+        case users
     }
-    static let empty = Organization(name: "", description: "", owner: User.empty)
+    static let empty = Organization(name: "", description: "", owner: User.empty, users: [User.empty])
+    static let testOrg = Organization(name: "NHS", description: "this is a very interesting organization", owner: User.testUser, users: [User.empty])
    
 }
 
-struct User : Codable, Identifiable{
+struct User : Codable, Identifiable, Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+           hasher.combine(name)
+    }
+    
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id = UUID()
     var name : String
     var email : String
@@ -59,6 +70,7 @@ struct User : Codable, Identifiable{
         case submissions
     }
     static let empty = User(name: "", email: "", password: "", grade: 0, organizationName: "", isOwner: false, isAdmin: false, totalHours: 0, approvedHours: 0, deniedHours: 0, submissions: [])
+    static let testUser = User(name: "Laksh Gulati", email: "lakshgulati5@gmail.com", password: "password", grade: 12, organizationName: "", isOwner: false, isAdmin: false, totalHours: 21, approvedHours: 15, deniedHours: 4, submissions: [])
     
 }
 
