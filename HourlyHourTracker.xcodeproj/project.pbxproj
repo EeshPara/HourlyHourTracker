@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49936BEF2A69CEC700164A96 /* StudentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49936BEE2A69CEC700164A96 /* StudentPage.swift */; };
+		49936BF12A69DCC700164A96 /* HourSubmissionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */; };
 		49F99F272A64FF6200244DBF /* JoinOrganizationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F99F262A64FF6200244DBF /* JoinOrganizationPage.swift */; };
 		AFB01EE82A6197E400D1D721 /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB01EE72A6197E400D1D721 /* SignInPage.swift */; };
 		AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0192A5F5C4B009227F9 /* HourlyHourTrackerApp.swift */; };
@@ -73,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49936BEE2A69CEC700164A96 /* StudentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentPage.swift; sourceTree = "<group>"; };
+		49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourSubmissionPage.swift; sourceTree = "<group>"; };
 		49F99F262A64FF6200244DBF /* JoinOrganizationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinOrganizationPage.swift; sourceTree = "<group>"; };
 		AFB01EE72A6197E400D1D721 /* SignInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
 		AFCDE0162A5F5C4B009227F9 /* HourlyHourTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HourlyHourTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +230,8 @@
 			children = (
 				AFCDE0892A603C40009227F9 /* Onboarding */,
 				AFCDE0822A5F5FC8009227F9 /* TestingView.swift */,
+				49936BEE2A69CEC700164A96 /* StudentPage.swift */,
+				49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -431,7 +437,9 @@
 				AFCDE08B2A603C71009227F9 /* WelcomePage.swift in Sources */,
 				AFCDE08F2A603E8C009227F9 /* OrganizationPage.swift in Sources */,
 				AFCDE0812A5F5F5B009227F9 /* DataBaseService.swift in Sources */,
+				49936BEF2A69CEC700164A96 /* StudentPage.swift in Sources */,
 				AFB01EE82A6197E400D1D721 /* SignInPage.swift in Sources */,
+				49936BF12A69DCC700164A96 /* HourSubmissionPage.swift in Sources */,
 				AFCDE08D2A603D83009227F9 /* SignUpPage.swift in Sources */,
 				AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */,
 				49F99F272A64FF6200244DBF /* JoinOrganizationPage.swift in Sources */,

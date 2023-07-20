@@ -30,6 +30,7 @@ struct Organization : Codable, Identifiable, Hashable{
         case users
     }
     static let empty = Organization(name: "", description: "", owner: User.empty, users: [User.empty])
+    static let testOrg = Organization(name: "NHS", description: "this is a very interesting organization", owner: User.testUser, users: [User.empty])
    
 }
 
@@ -69,6 +70,7 @@ struct User : Codable, Identifiable, Hashable {
         case submissions
     }
     static let empty = User(name: "", email: "", password: "", grade: 0, organizationName: "", isOwner: false, isAdmin: false, totalHours: 0, approvedHours: 0, deniedHours: 0, submissions: [])
+    static let testUser = User(name: "Laksh Gulati", email: "lakshgulati5@gmail.com", password: "password", grade: 12, organizationName: "", isOwner: false, isAdmin: false, totalHours: 21, approvedHours: 15, deniedHours: 4, submissions: [])
     
 }
 
