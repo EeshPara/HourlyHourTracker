@@ -33,6 +33,7 @@ struct JoinOrganizationPage: View {
                     .fontWeight(.heavy)
                     .multilineTextAlignment(.leading)
                     .padding(.vertical)
+                Spacer()
                 Text("Browse Organizations")
                     .font(Font.custom("SF-Pro-Display-Bold", size: 30))
                     .padding(.top)
