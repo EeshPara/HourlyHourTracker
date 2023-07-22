@@ -14,7 +14,7 @@ struct WelcomePage: View {
             VStack{
                 //logo
                 Text("hour.ly")
-//                    .font(Font.custom("SF-Pro-Display-Bold", size: 75))
+                    .font(Font.custom("SF-Pro-Display-Bold", size: 75))
                     .foregroundColor(Color("darkgrey"))
                     .font(.largeTitle)
                     .fontWeight(.semibold)
@@ -22,8 +22,8 @@ struct WelcomePage: View {
                     .padding(.top, 235.0)
                 //subheading
                 Text("Volunteer Tracker")
-//                    .font(Font.custom("Scada-Regular", size: 25))
-//                    .foregroundColor(Color("burntsienna"))
+                    .font(Font.custom("Scada-Regular", size: 25))
+                    .foregroundColor(Color("burntsienna"))
                 Spacer()
                 //signup button
                 NavigationLink {
@@ -32,8 +32,8 @@ struct WelcomePage: View {
                 } label: {
                     ZStack{
                         Text("Sign Up  👋")
-//                            .foregroundColor(Color("darkgrey"))
-//                            .font(Font.custom("SF-Pro-Display-Regular", size : 24))
+                            .foregroundColor(Color("darkgrey"))
+                            .font(Font.custom("SF-Pro-Display-Regular", size : 24))
                             RoundedRectangle(cornerRadius: 30)
                                         .stroke(Color("lightgrey2"), lineWidth: 1)
                                         .frame(width: 281, height: 65)

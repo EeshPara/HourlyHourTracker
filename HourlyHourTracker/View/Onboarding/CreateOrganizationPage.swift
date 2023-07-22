@@ -9,9 +9,15 @@ import SwiftUI
 
 struct CreateOrganizationPage: View {
     @EnvironmentObject var manager : AppManager
+    @State private var navigate = false
         var body: some View {
                 NavigationStack{
                     VStack{
+                        NavigationLink(destination: OrgOwnerPage()
+                            .environmentObject(manager), isActive: $navigate) {
+                            EmptyView()
+                                
+                        }
                         //logo
                         Text("Create an Organization")
                             .font(Font.custom("SF-Pro-Display-Bold", size: 40))
@@ -50,7 +56,9 @@ struct CreateOrganizationPage: View {
                         Button {
                            createOrganization()
                             signUpUser()
+                           
                             //toggle navigation
+                            navigate.toggle()
                             
                         } label: {
                             ZStack{
