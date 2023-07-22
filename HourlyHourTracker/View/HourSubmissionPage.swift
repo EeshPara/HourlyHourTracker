@@ -83,7 +83,7 @@ struct HourSubmissionPage: View {
                         .lineLimit(2...4)
                         .frame(width: 308, height: 200)
                 
-                        
+                        Spacer()
                 Text(reasonString)
                     .font(Font.custom("SF-Pro-Display-Bold", size: 14))
                     .foregroundColor(Color("burntsienna"))
