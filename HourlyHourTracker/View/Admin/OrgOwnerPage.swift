@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OrgOwnerPage: View {
+struct OrgOwnerPage: View { 
     @State var users : [User] = [User]()
     @EnvironmentObject var manager : AppManager
     var body: some View {
