@@ -84,6 +84,8 @@ struct Submission : Codable, Identifiable{
     let email : String
     let supervisorEmail : String
     var photoFileURL : URL
+    var approved : Bool
+    var denied : Bool
 
     private enum CodingKeys: String, CodingKey {
         case title
@@ -94,6 +96,9 @@ struct Submission : Codable, Identifiable{
         case email
         case supervisorEmail
         case photoFileURL
+        case approved
+        case denied
     }
-    static let empty = Submission(title: "", hours: 0, description: "", supervisor: "", name: "", email: "", supervisorEmail: "", photoFileURL: URL(string: "")!)
+    static let empty = Submission(title: "", hours: 0, description: "", supervisor: "", name: "", email: "", supervisorEmail: "", photoFileURL: URL(string: "")!, approved: false, denied: false)
+    static let example = Submission(title: "Poop Cleaning", hours: 3, description: "We cleaned lots of poop from a old mans but hole it was mad satisyong cant like uwu", supervisor: "John Poopman", name: "", email: "", supervisorEmail: "oldman@poop.com", photoFileURL: URL(string: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.seiu1000.org%2Fpost%2Fimage-dimensions&psig=AOvVaw3bIRf7oI20T1xClXiSjvU1&ust=1690126869665000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDairDTooADFQAAAAAdAAAAABAI")!, approved: false, denied: false)
 }
