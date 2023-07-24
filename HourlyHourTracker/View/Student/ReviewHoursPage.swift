@@ -86,7 +86,7 @@ struct ReviewHoursPage: View {
 
 struct ReviewHoursPage_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewHoursPage(submission: Submission.example, student: User.testUser)
+        ReviewHoursPage(submission: Submission.pending, student: User.testUser)
             .environmentObject(AppManager.example)
     }
 }

@@ -42,5 +42,6 @@ class AppManager: ObservableObject {
     }
     static let example = AppManager()
     static var testManager = AppManager(account: User.testUser, organization: Organization.testOrg)
+
 }
 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdminPage: View {
-    @State var users : [User] = [User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser]
+    @State var users : [User] = [User.testUser, User.testAdmin, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser]
     @State var selected = "All"
     let options = ["All", "Admin", "Student"]
     @EnvironmentObject var manager : AppManager
@@ -16,13 +16,13 @@ struct AdminPage: View {
     var body: some View {
         NavigationStack{
             VStack (alignment: .leading) {
-                Text(
-                    "Welcome, " + Organization.testOrg.owner.name)
-                .font(Font.custom("SF-Pro-Display-Bold", size: 40))
-                .foregroundColor(Color.black)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .padding()
+                Text("Welcome,\n" + firstName(name: manager.account.name))
+                    .font(Font.custom("SF-Pro-Display-Bold", size: 40))
+                    .foregroundColor(Color.black)
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .multilineTextAlignment(.leading)
+                    .padding(.leading)
                 Text("Manage your team.")
                     .padding()
                     .font(.system(size: 25))
@@ -79,7 +79,7 @@ struct AdminPage: View {
     struct AdminPage_Previews: PreviewProvider {
         static var previews: some View {
             AdminPage()
-                .environmentObject(AppManager.example)
+                .environmentObject(AppManager.testManager)
         }
     }
     
@@ -164,5 +164,14 @@ struct AdminPage: View {
                 }
             }
         }
+    }
+    
+    private func firstName(name: String) -> String
+    {
+        if let space = name.firstIndex(of: " ")
+        {
+            return name.substring(to: space)
+        }
+        return name
     }
 }

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AdminStudentView: View {
     @EnvironmentObject var manager : AppManager
+    let options = ["Pending", "Approved", "Denied"]
+    @State var selected = "Pending"
+    @State var submissions : [Submission] = [Submission.pending, Submission.pending, Submission.approved, Submission.denied]
     var body: some View {
         NavigationStack
         {
@@ -91,12 +94,129 @@ struct AdminStudentView: View {
                     .padding(.trailing, 40.0)
                 }
                 .padding(.vertical)
-                Spacer()
+                Picker("View", selection: $selected)
+                {
+                    ForEach(options, id: \.self)
+                    {
+                        Text($0)
+                    }
+                }
+                .padding()
+                .pickerStyle(.segmented)
+                ScrollView{
+                    if (options[0] == selected)
+                    {
+                        ForEach($submissions)
+                        {
+                            submission in pending(submission: submission)
+                        }
+                        //.padding(10)
+                        
+                    }
+                    if (options[1] == selected)
+                    {
+                        ForEach($submissions)
+                        {
+                            sub in
+                            approved(submission: sub)
+                        }
+                        //.padding(10)
+                    }
+                    if (options[2] == selected)
+                    {
+                        ForEach($submissions)
+                        {
+                            sub in
+                            denied(submission: sub)
+                        }
+                        //.padding(10)
+                    }
+                }
             }
-            .padding()
+            Spacer()
+        }
+        .padding()
+    }
+}
+    
+struct pending : View
+{
+    @Binding var submission : Submission
+    var body : some View
+    {
+        if (submission.approved == false && submission.denied == false)
+        {
+            NavigationLink
+            {
+                ReviewHoursPage(submission: submission, student: User.testUser)
+            }
+        label:
+            {
+                Text("Submission from \(submission.submissionDate.formatted())").font(Font.custom("SF-Pro-Display-Bold", size: 17))
+                    .foregroundColor(Color.black)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 30.0)
+                            .foregroundColor(Color("lightgrey1"))
+                        //.padding()
+                    )
+            }
         }
     }
 }
+    
+struct approved : View
+{
+    @Binding var submission : Submission
+    var body : some View
+    {
+        if (submission.approved == true)
+        {
+            NavigationLink
+            {
+                ReviewHoursPage(submission: submission, student: User.testUser)
+            }
+        label:
+            {
+                Text("Submission from \(submission.submissionDate.formatted())").font(Font.custom("SF-Pro-Display-Bold", size: 17))
+                    .foregroundColor(Color.black)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 30.0)
+                            .foregroundColor(Color("lightgrey1"))
+                        //.padding()
+                    )
+            }
+        }
+    }
+}
+
+struct denied : View
+{
+    @Binding var submission : Submission
+    var body : some View
+    {
+        if (submission.denied == true)
+        {
+            NavigationLink
+            {
+                ReviewHoursPage(submission: submission, student: User.testUser)
+            }
+        label:
+            {
+                Text("Submission from \(submission.submissionDate.formatted())").font(Font.custom("SF-Pro-Display-Bold", size: 17))
+                    .foregroundColor(Color.black)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 30.0)
+                            .foregroundColor(Color("lightgrey1"))
+                        //.padding()
+                    )
+            }
+        }
+    }
+}
+
 
 private func firstName(name: String) -> String
 {
