@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0EE4D42A6C33CF0042F2FB /* OrgOwnerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EE4D32A6C33CF0042F2FB /* OrgOwnerPage.swift */; };
+		1CBE61CE2A6C5A6A00D33D54 /* OrgOwnerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE61CD2A6C5A6A00D33D54 /* OrgOwnerTabView.swift */; };
+		1CBE61D02A6C5F8300D33D54 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE61CF2A6C5F8300D33D54 /* AdminPage.swift */; };
+		1CBE61D62A6C803600D33D54 /* AdminStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE61D52A6C803600D33D54 /* AdminStudentView.swift */; };
 		49936BEF2A69CEC700164A96 /* StudentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49936BEE2A69CEC700164A96 /* StudentPage.swift */; };
 		49936BF12A69DCC700164A96 /* HourSubmissionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */; };
 		49B997452A6C2D9B006EAC0E /* ReviewHoursPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B997442A6C2D9B006EAC0E /* ReviewHoursPage.swift */; };
-		1C0EE4D42A6C33CF0042F2FB /* OrgOwnerPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0EE4D32A6C33CF0042F2FB /* OrgOwnerPage.swift */; };
 		49F99F272A64FF6200244DBF /* JoinOrganizationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F99F262A64FF6200244DBF /* JoinOrganizationPage.swift */; };
 		AFB01EE82A6197E400D1D721 /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB01EE72A6197E400D1D721 /* SignInPage.swift */; };
 		AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0192A5F5C4B009227F9 /* HourlyHourTrackerApp.swift */; };
@@ -76,10 +79,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C0EE4D32A6C33CF0042F2FB /* OrgOwnerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgOwnerPage.swift; sourceTree = "<group>"; };
+		1CBE61CD2A6C5A6A00D33D54 /* OrgOwnerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgOwnerTabView.swift; sourceTree = "<group>"; };
+		1CBE61CF2A6C5F8300D33D54 /* AdminPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
+		1CBE61D52A6C803600D33D54 /* AdminStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStudentView.swift; sourceTree = "<group>"; };
 		49936BEE2A69CEC700164A96 /* StudentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentPage.swift; sourceTree = "<group>"; };
 		49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourSubmissionPage.swift; sourceTree = "<group>"; };
 		49B997442A6C2D9B006EAC0E /* ReviewHoursPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHoursPage.swift; sourceTree = "<group>"; };
-		1C0EE4D32A6C33CF0042F2FB /* OrgOwnerPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgOwnerPage.swift; sourceTree = "<group>"; };
 		49F99F262A64FF6200244DBF /* JoinOrganizationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinOrganizationPage.swift; sourceTree = "<group>"; };
 		AFB01EE72A6197E400D1D721 /* SignInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
 		AFCDE0162A5F5C4B009227F9 /* HourlyHourTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HourlyHourTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,10 +162,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C0EE4D22A6C338D0042F2FB /* Admin */ = {
+		1C0EE4D22A6C338D0042F2FB /* Owner */ = {
 			isa = PBXGroup;
 			children = (
 				1C0EE4D32A6C33CF0042F2FB /* OrgOwnerPage.swift */,
+				1CBE61CD2A6C5A6A00D33D54 /* OrgOwnerTabView.swift */,
+			);
+			path = Owner;
+			sourceTree = "<group>";
+		};
+		1CBE61D32A6C7EA800D33D54 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				49B997442A6C2D9B006EAC0E /* ReviewHoursPage.swift */,
+				49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */,
+				49936BEE2A69CEC700164A96 /* StudentPage.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
+		1CBE61D42A6C7EC900D33D54 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				1CBE61CF2A6C5F8300D33D54 /* AdminPage.swift */,
+				1CBE61D52A6C803600D33D54 /* AdminStudentView.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -238,12 +264,10 @@
 		AFCDE07D2A5F5ED8009227F9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				1C0EE4D22A6C338D0042F2FB /* Admin */,
+				1CBE61D42A6C7EC900D33D54 /* Admin */,
+				1CBE61D32A6C7EA800D33D54 /* Student */,
+				1C0EE4D22A6C338D0042F2FB /* Owner */,
 				AFCDE0892A603C40009227F9 /* Onboarding */,
-				AFCDE0822A5F5FC8009227F9 /* TestingView.swift */,
-				49936BEE2A69CEC700164A96 /* StudentPage.swift */,
-				49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */,
-				49B997442A6C2D9B006EAC0E /* ReviewHoursPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,7 +469,10 @@
 				AFCDE01C2A5F5C4B009227F9 /* ContentView.swift in Sources */,
 				AFCDE07F2A5F5EED009227F9 /* BaseStructs.swift in Sources */,
 				AFCDE0882A5F726D009227F9 /* AppManager.swift in Sources */,
+				1CBE61D62A6C803600D33D54 /* AdminStudentView.swift in Sources */,
 				AFCDE08B2A603C71009227F9 /* WelcomePage.swift in Sources */,
+				1CBE61D02A6C5F8300D33D54 /* AdminPage.swift in Sources */,
+				1CBE61CE2A6C5A6A00D33D54 /* OrgOwnerTabView.swift in Sources */,
 				1C0EE4D42A6C33CF0042F2FB /* OrgOwnerPage.swift in Sources */,
 				AFCDE08F2A603E8C009227F9 /* OrganizationPage.swift in Sources */,
 				AFCDE0812A5F5F5B009227F9 /* DataBaseService.swift in Sources */,
