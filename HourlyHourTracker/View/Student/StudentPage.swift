@@ -9,6 +9,11 @@ import SwiftUI
 
 struct StudentPage: View {
     @EnvironmentObject var manager : AppManager
+    
+    let options = ["Pending", "Approved", "Denied"]
+    @State var selected = "Pending"
+    @State var submissions : [Submission] = [Submission.pending, Submission.pending, Submission.approved, Submission.denied]
+    
     var body: some View {
         NavigationStack
         {
@@ -109,6 +114,44 @@ struct StudentPage: View {
                     .padding(.trailing, 40.0)
                 }
                 .padding(.vertical)
+                Picker("View", selection: $selected)
+                {
+                    ForEach(options, id: \.self)
+                    {
+                        Text($0)
+                    }
+                }
+                .padding()
+                .pickerStyle(.segmented)
+                ScrollView{
+                    if (options[0] == selected)
+                    {
+                        ForEach($submissions)
+                        {
+                            submission in pending(submission: submission)
+                        }
+                        //.padding(10)
+                        
+                    }
+                    if (options[1] == selected)
+                    {
+                        ForEach($submissions)
+                        {
+                            sub in
+                            approved(submission: sub)
+                        }
+                        //.padding(10)
+                    }
+                    if (options[2] == selected)
+                    {
+                        ForEach($submissions)
+                        {
+                            sub in
+                            denied(submission: sub)
+                        }
+                        //.padding(10)
+                    }
+                }
                 Spacer()
             }
             .padding()

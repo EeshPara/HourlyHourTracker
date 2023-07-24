@@ -11,7 +11,6 @@ struct AdminStudentView: View {
     @EnvironmentObject var manager : AppManager
     let options = ["Pending", "Approved", "Denied"]
     @State var selected = "Pending"
-    @State var submissions : [Submission] = [Submission.pending, Submission.pending, Submission.approved, Submission.denied]
     var body: some View {
         NavigationStack
         {
@@ -106,7 +105,7 @@ struct AdminStudentView: View {
                 ScrollView{
                     if (options[0] == selected)
                     {
-                        ForEach($submissions)
+                        ForEach($manager.account.submissions)
                         {
                             submission in pending(submission: submission)
                         }
@@ -115,7 +114,7 @@ struct AdminStudentView: View {
                     }
                     if (options[1] == selected)
                     {
-                        ForEach($submissions)
+                        ForEach($manager.account.submissions)
                         {
                             sub in
                             approved(submission: sub)
@@ -124,7 +123,7 @@ struct AdminStudentView: View {
                     }
                     if (options[2] == selected)
                     {
-                        ForEach($submissions)
+                        ForEach($manager.account.submissions)
                         {
                             sub in
                             denied(submission: sub)

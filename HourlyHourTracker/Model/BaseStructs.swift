@@ -70,7 +70,7 @@ struct User : Codable, Identifiable, Hashable {
         case submissions
     }
     static let empty = User(name: "", email: "", password: "", grade: 0, organizationName: "", isOwner: false, isAdmin: false, totalHours: 0, approvedHours: 0, deniedHours: 0, submissions: [])
-    static let testUser = User(name: "Laksh Gulati", email: "lakshgulati5@gmail.com", password: "password", grade: 12, organizationName: "NHS", isOwner: false, isAdmin: false, totalHours: 21, approvedHours: 15, deniedHours: 4, submissions: [])
+    static let testUser = User(name: "Laksh Gulati", email: "lakshgulati5@gmail.com", password: "password", grade: 12, organizationName: "NHS", isOwner: false, isAdmin: false, totalHours: 21, approvedHours: 15, deniedHours: 4, submissions: [Submission.pending, Submission.pending, Submission.approved, Submission.denied])
     static let testAdmin = User(name: "George Bill", email: "lakshgulati5@gmail.com", password: "password", grade: 12, organizationName: "NHS", isOwner: false, isAdmin: true, totalHours: 21, approvedHours: 15, deniedHours: 4, submissions: [])
     
 }
