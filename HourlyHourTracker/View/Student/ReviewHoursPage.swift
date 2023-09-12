@@ -16,6 +16,7 @@ struct ReviewHoursPage: View {
         {
             VStack
             {
+               
                 HStack
                 {
                     Text("\(submission.title)")
@@ -62,8 +63,6 @@ struct ReviewHoursPage: View {
                     .padding(.trailing)
                 }
                 .padding(.vertical)
-                Text("Student: \(student.name)")
-                    .font(Font.custom("SF-Pro-Display-Bold", size: 17))
                 HStack
                 {
                     Text("Supervisor:")

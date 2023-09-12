@@ -24,6 +24,20 @@ struct JoinOrganizationPage: View {
     var body: some View {
         NavigationStack
         {
+            
+            NavigationLink("", isActive: $navigate) {
+                if manager.account.isOwner{
+                    OrgOwnerPage()
+                        .environmentObject(manager)
+                } else if manager.account.isAdmin{
+                    AdminPage()
+                        .environmentObject(manager)
+                }else{
+                    StudentPage()
+                        .environmentObject(manager)
+                }
+            }
+            
             VStack
             {
                 Text("Join an Organization")
@@ -80,9 +94,16 @@ struct JoinOrganizationPage: View {
 //                    .foregroundColor(Color("burntsienna"))
                 Spacer()
                 Button {
-                    manager.db.signUpUser(user: manager.account)
-                    //nav to next View
-                    navigate.toggle()
+                    if let selectedOrganization {
+                        manager.account.organizationName = selectedOrganization.name
+                        
+                        manager.db.signUpUserGoogle(user: manager.account)
+                        //nav to next View
+                        navigate.toggle()
+                    }
+                    else{
+                        print("select an organization")
+                    }
                 } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 30)
@@ -93,7 +114,7 @@ struct JoinOrganizationPage: View {
                             .font(Font.custom("SF-Pro-Display-Regular", size : 24))
                     }
                 }
-                .disabled(manager.account.organizationName.isEmpty)
+                .disabled(selectedOrganization == nil)
                 .padding(.vertical)
             }
             .task {

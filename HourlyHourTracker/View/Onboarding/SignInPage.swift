@@ -13,6 +13,7 @@ struct SignInPage: View {
     @State private var password: String = ""
     @State private var orgName : String = ""
     @State private var organizations = [Organization]()
+    @State private var navigate = false
     var body: some View {
         NavigationStack{
             VStack{
@@ -83,15 +84,41 @@ struct SignInPage: View {
                 }
                 .disabled(email.isEmpty || password.isEmpty || orgName.isEmpty)
                 //signin link
-                NavigationLink{
-                    //next page
-                } label: {
-                    Text("By continuing you agree to our Terms of Service")
-                        .foregroundColor(.black)
-                        .font(Font.custom("SF-Pro-Display-Bold", size: 14))
-                        .padding(.top)
-                    
-                }
+                
+//                NavigationLink(destination: {
+//                    if manager.account.isOwner {
+//                        OrgOwnerTabView()
+//                            .environmentObject(manager)
+//                    } else if manager.account.isAdmin {
+//                        AdminPage()
+//                            .environmentObject(manager)
+//                    } else {
+//                        StudentPage()
+//                            .environmentObject(manager)
+//                    }
+//                }, isActive: $navigate){
+//                    EmptyView()
+//                }
+              
+//                NavigationLink{
+//
+//                    if manager.account.isOwner{
+//                        OrgOwnerTabView()
+//                    }
+//                    else if manager.account.isAdmin{
+//                        AdminPage()
+//                    }
+//                    else{
+//                        StudentPage()
+//                    }
+//
+//                } label: {
+//                    Text("By continuing you agree to our Terms of Service")
+//                        .foregroundColor(.black)
+//                        .font(Font.custom("SF-Pro-Display-Bold", size: 14))
+//                        .padding(.top)
+//
+//                }
             }
            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -124,6 +151,7 @@ struct SignInPage: View {
             if org != nil{
                 manager.organization = org!
                 print(org)
+                navigate.toggle()
             }
             else{
                 print("There was an error in the Sign in Page and the org that was loaded was nil")

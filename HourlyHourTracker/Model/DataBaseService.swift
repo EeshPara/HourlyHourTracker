@@ -85,6 +85,17 @@ struct DatabaseService {
             }
         }
     }
+    func signUpUserGoogle(user : User){
+        
+    
+                            let jsonString = encode(user)
+                // going to orginzations collection then going to the document that is at the originizationName then going to that originzations sub-collection of users and adding the user as a dictionary of String String but really its String Json
+                db.collection(FirebaseStrings.orgs.rawValue).document(user.organizationName).collection(FirebaseStrings.users.rawValue).document(user.email).setData([FirebaseStrings.user.rawValue: jsonString ?? ""])
+                print("Just saved \(user.name) to \(user.organizationName)")
+            
+        
+    }
+
     
     
         func signIn(email: String, password: String) async throws -> Bool {
@@ -178,13 +189,15 @@ struct DatabaseService {
         var userArray = [User?]()
         // empty user array
         do{
-            let querySnapshot = try await db.collection(FirebaseStrings.orgs.rawValue).document(organizationName).collection(FirebaseStrings.users.rawValue).getDocuments()
-            for document in querySnapshot.documents{
-                let userData = document.data()
-                if let user = decodeUser(fromDictionary: userData){
-                    userArray.append(user)
-                } else{
-                    print("The user data is nil")
+            if !organizationName.isEmpty{
+                let querySnapshot = try await db.collection(FirebaseStrings.orgs.rawValue).document(organizationName).collection(FirebaseStrings.users.rawValue).getDocuments()
+                for document in querySnapshot.documents{
+                    let userData = document.data()
+                    if let user = decodeUser(fromDictionary: userData){
+                        userArray.append(user)
+                    } else{
+                        print("The user data is nil")
+                    }
                 }
             }
         } catch{
@@ -193,6 +206,47 @@ struct DatabaseService {
         }
         return userArray
     }
+    
+    //Find Organization returns the organization a user is in
+ 
+
+ 
+    func LoadUserFromEmail(email: String) async throws -> User?{
+      
+        let orgs = try await db.collection(FirebaseStrings.orgs.rawValue).getDocuments()
+        for orgDoc in orgs.documents{
+           let org = decodeOrganization(fromDictionary: orgDoc.data())
+            if let org = org{
+                let userDocs = try await db.collection(FirebaseStrings.orgs.rawValue).document(org.name).collection(FirebaseStrings.users.rawValue).getDocuments()
+                for userDoc in userDocs.documents{
+                    let user = decodeUser(fromDictionary: userDoc.data())
+                    if let user = user{
+                        if user.email == email{
+                            return user
+                        }
+                    }
+                }
+                
+            }
+        }
+        return nil
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     //Stores an image to a designated filepath
     func uploadImageToFirebaseStorage(image: UIImage, user: User, submission: Submission, completion: @escaping (Result<String, Error>) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {

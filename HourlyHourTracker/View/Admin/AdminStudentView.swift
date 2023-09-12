@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AdminStudentView: View {
     @EnvironmentObject var manager : AppManager
+    @Binding var user : User
     let options = ["Pending", "Approved", "Denied"]
     @State var selected = "Pending"
     var body: some View {
@@ -18,7 +19,7 @@ struct AdminStudentView: View {
             {
                 HStack
                 {
-                    Text(User.testUser.name)
+                    Text(user.name)
                         .font(Font.custom("SF-Pro-Display-Bold", size: 40))
                         .foregroundColor(Color.black)
                         .font(.largeTitle)
@@ -32,7 +33,7 @@ struct AdminStudentView: View {
                     //approved hours view
                     VStack(alignment: .leading)
                     {
-                        Text("\(manager.account.approvedHours)"  )
+                        Text("\(user.approvedHours)"  )
                             .font(Font.custom("SF-Pro-Display-Bold", size: 40))
                             .foregroundColor(.green)
                             .font(.largeTitle)
@@ -47,7 +48,7 @@ struct AdminStudentView: View {
                     //pending hours view
                     VStack(alignment: .trailing)
                     {
-                        Text("\(manager.account.totalHours - manager.account.approvedHours - manager.account.deniedHours)"  )
+                        Text("\(user.totalHours - user.approvedHours - user.deniedHours)"  )
                             .font(Font.custom("SF-Pro-Display-Bold", size: 40))
                             .foregroundColor(Color(red: 0.6352941176470588, green: 0.7647058823529411, blue: 0.6392156862745098))
                             .font(.largeTitle)
@@ -64,7 +65,7 @@ struct AdminStudentView: View {
                     //denied hours view
                     VStack(alignment: .leading)
                     {
-                        Text("\(manager.account.deniedHours)"  )
+                        Text("\(user.deniedHours)"  )
                             .font(Font.custom("SF-Pro-Display-Bold", size: 40))
                             .foregroundColor(.red)
                             .font(.largeTitle)
@@ -79,7 +80,7 @@ struct AdminStudentView: View {
                     //total hours view
                     VStack(alignment: .trailing)
                     {
-                        Text("\(manager.account.totalHours)"  )
+                        Text("\(user.totalHours)"  )
                             .font(Font.custom("SF-Pro-Display-Bold", size: 40))
                             .foregroundColor(.black)
                             .font(.largeTitle)
@@ -105,7 +106,7 @@ struct AdminStudentView: View {
                 ScrollView{
                     if (options[0] == selected)
                     {
-                        ForEach($manager.account.submissions)
+                        ForEach($user.submissions)
                         {
                             submission in pending(submission: submission)
                         }
@@ -114,7 +115,7 @@ struct AdminStudentView: View {
                     }
                     if (options[1] == selected)
                     {
-                        ForEach($manager.account.submissions)
+                        ForEach($user.submissions)
                         {
                             sub in
                             approved(submission: sub)
@@ -123,7 +124,7 @@ struct AdminStudentView: View {
                     }
                     if (options[2] == selected)
                     {
-                        ForEach($manager.account.submissions)
+                        ForEach($user.submissions)
                         {
                             sub in
                             denied(submission: sub)
@@ -228,7 +229,7 @@ private func firstName(name: String) -> String
 
 struct AdminStudentView_Previews: PreviewProvider {
     static var previews: some View {
-        AdminStudentView()
+        AdminStudentView( user: Binding.constant(User.empty))
             .environmentObject(AppManager.example)
     }
 }

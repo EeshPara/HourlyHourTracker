@@ -13,7 +13,7 @@ struct CreateOrganizationPage: View {
         var body: some View {
                 NavigationStack{
                     VStack{
-                        NavigationLink(destination: OrgOwnerPage()
+                        NavigationLink(destination: OrgOwnerTabView()
                             .environmentObject(manager), isActive: $navigate) {
                             EmptyView()
                                 
@@ -92,7 +92,7 @@ struct CreateOrganizationPage: View {
     }
     func signUpUser(){
       // just signing up the current user now
-        manager.db.signUpUser(user: manager.account)
+        manager.db.signUpUserGoogle(user: manager.account)
     }
     
 }

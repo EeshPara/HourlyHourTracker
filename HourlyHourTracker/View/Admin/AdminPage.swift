@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct AdminPage: View {
-    @State var users : [User] = [User.testUser, User.testAdmin, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser]
+    @State var users = [User]()
     @State var selected = "All"
     let options = ["All", "Admin", "Student"]
     @EnvironmentObject var manager : AppManager
+
     
     var body: some View {
         NavigationStack{
@@ -58,21 +59,24 @@ struct AdminPage: View {
                     }
                 }
                 .task {
-                    do{
-                        let optionalusers = try await manager.db.loadUsers(organizationName: Organization.testOrg.name)
-                        for user in optionalusers{
-                            if let userThatIsntNil = user{
-                                users.append(userThatIsntNil)
+                    if users.isEmpty{
+                        do{
+                            let optionalusers = try await manager.db.loadUsers(organizationName: manager.account.organizationName)
+                            for user in optionalusers{
+                                if let userThatIsntNil = user{
+                                    users.append(userThatIsntNil)
+                                }
                             }
+                            
                         }
-                        
-                    }
-                    catch{
-                        print(error.localizedDescription)
+                        catch{
+                            print(error.localizedDescription)
+                        }
                     }
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
     
     
@@ -96,7 +100,8 @@ struct AdminPage: View {
                         .font(Font.custom("SF-Pro-Display-Regular", size : 24))
                     Spacer()
                     NavigationLink{
-                        AdminStudentView()
+                        AdminStudentView(user : $user)
+                            
                     }
                     label:{
                         Image(systemName: "arrowtriangle.forward.fill")
@@ -123,7 +128,7 @@ struct AdminPage: View {
                             .font(Font.custom("SF-Pro-Display-Regular", size : 24))
                         Spacer()
                         NavigationLink{
-                            AdminStudentView()
+                            AdminStudentView(user : $user)
                         }
                         label:{
                             Image(systemName: "arrowtriangle.forward.fill")
@@ -150,7 +155,7 @@ struct AdminPage: View {
                             .font(Font.custom("SF-Pro-Display-Regular", size : 24))
                         Spacer()
                         NavigationLink{
-                            AdminStudentView()
+                            AdminStudentView(user : $user)
                         }
                         label:{
                             Image(systemName: "arrowtriangle.forward.fill")

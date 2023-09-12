@@ -75,15 +75,15 @@ struct User : Codable, Identifiable, Hashable {
     
 }
 
-struct Submission : Codable, Identifiable{
+struct Submission : Codable, Identifiable, Hashable{
     let id = UUID()
-    let title : String
-    let hours : Int
-    let description : String
-    let supervisor : String
-    let name : String
-    let email : String
-    let supervisorEmail : String
+    var title : String
+    var hours : Int
+    var description : String
+    var supervisor : String
+    var name : String
+    var email : String
+    var supervisorEmail : String
     var photoFileURL : URL
     var approved : Bool
     var denied : Bool
@@ -102,7 +102,7 @@ struct Submission : Codable, Identifiable{
         case denied
         case submissionDate
     }
-    static let empty = Submission(title: "", hours: 0, description: "", supervisor: "", name: "", email: "", supervisorEmail: "", photoFileURL: URL(string: "")!, approved: false, denied: false, submissionDate: Date())
+    static let empty = Submission(title: "", hours: 0, description: "", supervisor: "", name: "", email: "", supervisorEmail: "", photoFileURL: URL(string: "https://media.istockphoto.com/id/1316420668/vector/user-icon-human-person-symbol-social-profile-icon-avatar-login-sign-web-user-symbol.jpg?s=612x612&w=0&k=20&c=AhqW2ssX8EeI2IYFm6-ASQ7rfeBWfrFFV4E87SaFhJE=")!, approved: false, denied: false, submissionDate: Date())
     static let pending = Submission(title: "Poop Cleaning", hours: 3, description: "We cleaned lots of poop from a old mans but hole it was mad satisyong cant like uwu", supervisor: "John Poopman", name: "", email: "", supervisorEmail: "oldman@poop.com", photoFileURL: URL(string: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.seiu1000.org%2Fpost%2Fimage-dimensions&psig=AOvVaw3bIRf7oI20T1xClXiSjvU1&ust=1690126869665000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDairDTooADFQAAAAAdAAAAABAI")!, approved: false, denied: false, submissionDate: Date())
     static let approved = Submission(title: "Poop Cleaning", hours: 3, description: "We cleaned lots of poop from a old mans but hole it was mad satisyong cant like uwu", supervisor: "John Poopman", name: "", email: "", supervisorEmail: "oldman@poop.com", photoFileURL: URL(string: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.seiu1000.org%2Fpost%2Fimage-dimensions&psig=AOvVaw3bIRf7oI20T1xClXiSjvU1&ust=1690126869665000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDairDTooADFQAAAAAdAAAAABAI")!, approved: true, denied: false, submissionDate: Date())
     static let denied = Submission(title: "Poop Cleaning", hours: 3, description: "We cleaned lots of poop from a old mans but hole it was mad satisyong cant like uwu", supervisor: "John Poopman", name: "", email: "", supervisorEmail: "oldman@poop.com", photoFileURL: URL(string: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.seiu1000.org%2Fpost%2Fimage-dimensions&psig=AOvVaw3bIRf7oI20T1xClXiSjvU1&ust=1690126869665000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLDairDTooADFQAAAAAdAAAAABAI")!, approved: false, denied: true, submissionDate: Date())

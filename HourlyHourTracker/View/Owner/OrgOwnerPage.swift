@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct OrgOwnerPage: View {
-    @State var users : [User] = [User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser, User.testUser]
+    @State var users = [User]()
     @EnvironmentObject var manager : AppManager
     var body: some View {
         VStack (alignment: .leading){
-            Text(Organization.testOrg.name)
+            Text(manager.organization.name)
                 .font(Font.custom("SF-Pro-Display-Bold", size: 40))
                 .foregroundColor(Color.black)
                 .font(.largeTitle)
@@ -34,14 +34,14 @@ struct OrgOwnerPage: View {
                                 {
                                     Button("Remove Admin")
                                     {
-//                                        user.isAdmin.toggle()
+                                      removeAdmin(user: user)
                                     }
                                 }
                                 else
                                 {
                                     Button("Make Admin")
                                     {
-//                                        user.isAdmin.toggle()
+                                        makeAdmin(user: user)
                                     }
                                 }
                             }
@@ -72,6 +72,16 @@ struct OrgOwnerPage: View {
                 print(error.localizedDescription)
             }
         }
+    }
+    func makeAdmin(user: User){
+        var newUser = user
+        newUser.isAdmin = true
+        manager.db.updateUser(user: user)
+    }
+    func removeAdmin(user: User){
+        var newUser = user
+        newUser.isAdmin = false
+        manager.db.updateUser(user: user)
     }
     
 }

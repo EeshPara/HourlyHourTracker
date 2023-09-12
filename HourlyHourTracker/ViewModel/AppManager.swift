@@ -11,6 +11,7 @@ class AppManager: ObservableObject {
     @Published var account: User
     @Published var organization: Organization
     @Published var db : DatabaseService
+    @Published var authViewModel = AuthenticationViewModel()
     init(email: String, orgName: String) {
         account = User.empty
         organization = Organization.empty

@@ -19,6 +19,7 @@ struct StudentPage: View {
         {
             VStack
             {
+              
                 HStack
                 {
                     Text("Welcome,\n" + firstName(name: manager.account.name))
@@ -126,16 +127,15 @@ struct StudentPage: View {
                 ScrollView{
                     if (options[0] == selected)
                     {
-                        ForEach($submissions)
-                        {
-                            submission in pending(submission: submission)
+                        ForEach($manager.account.submissions, id: \.self) {  sub in
+                            pending(submission: sub)
                         }
                         //.padding(10)
                         
                     }
                     if (options[1] == selected)
                     {
-                        ForEach($submissions)
+                        ForEach($manager.account.submissions, id: \.self)
                         {
                             sub in
                             approved(submission: sub)
@@ -144,7 +144,7 @@ struct StudentPage: View {
                     }
                     if (options[2] == selected)
                     {
-                        ForEach($submissions)
+                        ForEach($manager.account.submissions, id: \.self)
                         {
                             sub in
                             denied(submission: sub)
@@ -155,8 +155,10 @@ struct StudentPage: View {
                 Spacer()
             }
             .padding()
-        }
+        } 
+        .navigationBarBackButtonHidden(true)
     }
+
 }
 
 private func firstName(name: String) -> String
