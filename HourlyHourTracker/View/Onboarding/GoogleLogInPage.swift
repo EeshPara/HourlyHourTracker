@@ -7,6 +7,7 @@ struct GoogleLoginPage: View {
     @EnvironmentObject var manager : AppManager
     @State private var navigateToOrgs = false
     @State private var navigateToMain = false
+    @State private var toggle = false
   var body: some View {
     VStack {
       Spacer()
@@ -28,10 +29,7 @@ struct GoogleLoginPage: View {
         }
         
       // 2
-      Image("header_image")
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-
+      
       Text("Welcome to Hour.ly!")
         .fontWeight(.black)
         .foregroundColor(Color(.systemIndigo))
@@ -52,7 +50,7 @@ struct GoogleLoginPage: View {
             Task{
                 manager.authViewModel.signIn()
                 if manager.authViewModel.state == .signedIn{
-                    await saveInfo()
+                    saveInfo()
                     navigateToOrgs.toggle()
                 }
                 else if manager.authViewModel.state == .restoredSignIn{
@@ -62,8 +60,30 @@ struct GoogleLoginPage: View {
                     manager.account.isAdmin = false
                     navigateToMain.toggle()
                 }
+               
             }
         }
+    }
+    .task{
+     
+            manager.authViewModel.signIn()
+            if(manager.authViewModel.state == .restoredSignIn){
+                toggle.toggle()
+            }
+        
+    }
+    .onChange(of: toggle){ newVal in
+        if newVal{
+            Task{
+                do{
+                    try await loadUser()
+                }
+                catch{
+                    print("failed")
+                }
+            }
+        }
+        
     }
   }
     func saveInfo(){
@@ -73,10 +93,14 @@ struct GoogleLoginPage: View {
         if let name = manager.authViewModel.googleAccount?.profile?.name{
             manager.account.name = name
         }
-        
      
-       
-        
+    }
+    
+    func loadUser() async throws{
+        saveInfo()
+        manager.account = try await manager.db.LoadUserFromEmail(email: manager.account.email) ?? User.empty
+        manager.account.isAdmin = false
+        navigateToMain.toggle()
     }
     
     

@@ -27,7 +27,7 @@ struct WelcomePage: View {
                 Spacer()
                 //signup button
                 NavigationLink {
-                    GoogleLoginPage()
+                    GoogleLoginView()
                         .environmentObject(manager)
                 } label: {
                     ZStack{
@@ -39,13 +39,8 @@ struct WelcomePage: View {
                                         .frame(width: 281, height: 65)
                     }
                 }
-                //signin link
-                NavigationLink{
-                    SignInPage()
-                } label: {
-                    Text("Already have an account? Sign In.")
-                        .foregroundColor(.black)
-                }
+       
+               
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(40)

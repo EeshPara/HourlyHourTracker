@@ -26,6 +26,7 @@ struct OrgOwnerTabView: View {
                     Label("Admin", systemImage: "person.3")
                 }
         }
+        .navigationBarBackButtonHidden(true)
         
     }
 }
