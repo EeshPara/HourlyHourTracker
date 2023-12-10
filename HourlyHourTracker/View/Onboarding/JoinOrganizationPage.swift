@@ -13,7 +13,7 @@ struct JoinOrganizationPage: View {
     @State private var navigate = false
     @State private var searchText = ""
     @State private var itemName = ""
-    @State private var isExpanded = true
+    @State private var isExpanded = false
     @State private var selectedOrganization: Organization?
     @State private var color : Color = .black
     private var filteredItems: [Organization] {
@@ -47,8 +47,6 @@ struct JoinOrganizationPage: View {
                     .fontWeight(.heavy)
                     .multilineTextAlignment(.leading)
                     .padding(.vertical)
-                Spacer()
-                Text("Browse Organizations")
                     .font(Font.custom("SF-Pro-Display-Bold", size: 30))
                     .padding(.top)
                 SearchBar(searchText: $searchText, color: $color, isExpanded: $isExpanded, itemName: $itemName)
@@ -107,10 +105,10 @@ struct JoinOrganizationPage: View {
                 } label: {
                     ZStack{
                         RoundedRectangle(cornerRadius: 30)
-                            .fill(Color("darkgrey"))
-                            .frame(width: 281, height: 65)
+                                    .stroke(Color("lightgrey2"), lineWidth: 1)
+                                    .frame(width: 281, height: 65)
                         Text("Join")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color("darkgrey"))
                             .font(Font.custom("SF-Pro-Display-Regular", size : 24))
                     }
                 }

@@ -18,11 +18,9 @@
 		AF2BEFB72AAE51C800390EF7 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = AF2BEFB62AAE51C800390EF7 /* GoogleSignIn */; };
 		AF2BEFB92AAE51C800390EF7 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AF2BEFB82AAE51C800390EF7 /* GoogleSignInSwift */; };
 		AF2BEFBB2AAE542F00390EF7 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BEFBA2AAE542F00390EF7 /* AuthenticationViewModel.swift */; };
-		AF2BEFBD2AAE5E1800390EF7 /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BEFBC2AAE5E1800390EF7 /* GoogleSignInButton.swift */; };
 		AF2BEFBF2AAE5E6E00390EF7 /* GoogleLogInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2BEFBE2AAE5E6E00390EF7 /* GoogleLogInPage.swift */; };
-		AF2BEFC32AAE66BB00390EF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2BEFC22AAE66BB00390EF7 /* GoogleService-Info.plist */; };
+		AF79DD482AB120AF00077698 /* SubmissionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF79DD472AB120AF00077698 /* SubmissionViews.swift */; };
 		AF8AB1522A895EC300AB2290 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8AB1512A895EC300AB2290 /* ScanView.swift */; };
-		AFB01EE82A6197E400D1D721 /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB01EE72A6197E400D1D721 /* SignInPage.swift */; };
 		AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0192A5F5C4B009227F9 /* HourlyHourTrackerApp.swift */; };
 		AFCDE01C2A5F5C4B009227F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE01B2A5F5C4B009227F9 /* ContentView.swift */; };
 		AFCDE01E2A5F5C52009227F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFCDE01D2A5F5C52009227F9 /* Assets.xcassets */; };
@@ -62,7 +60,6 @@
 		AFCDE0852A5F64DD009227F9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AFCDE0842A5F64DC009227F9 /* GoogleService-Info.plist */; };
 		AFCDE0882A5F726D009227F9 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0872A5F726C009227F9 /* AppManager.swift */; };
 		AFCDE08B2A603C71009227F9 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE08A2A603C71009227F9 /* WelcomePage.swift */; };
-		AFCDE08D2A603D83009227F9 /* SignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE08C2A603D83009227F9 /* SignUpPage.swift */; };
 		AFCDE08F2A603E8C009227F9 /* OrganizationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE08E2A603E8C009227F9 /* OrganizationPage.swift */; };
 		AFCDE0932A603F37009227F9 /* CreateOrganizationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDE0922A603F36009227F9 /* CreateOrganizationPage.swift */; };
 		AFCDE0982A6046BF009227F9 /* sf-pro-display-cufonfonts in Resources */ = {isa = PBXBuildFile; fileRef = AFCDE0972A6046BE009227F9 /* sf-pro-display-cufonfonts */; };
@@ -95,11 +92,9 @@
 		49B997442A6C2D9B006EAC0E /* ReviewHoursPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHoursPage.swift; sourceTree = "<group>"; };
 		49F99F262A64FF6200244DBF /* JoinOrganizationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinOrganizationPage.swift; sourceTree = "<group>"; };
 		AF2BEFBA2AAE542F00390EF7 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
-		AF2BEFBC2AAE5E1800390EF7 /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
 		AF2BEFBE2AAE5E6E00390EF7 /* GoogleLogInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLogInPage.swift; sourceTree = "<group>"; };
-		AF2BEFC22AAE66BB00390EF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AF79DD472AB120AF00077698 /* SubmissionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionViews.swift; sourceTree = "<group>"; };
 		AF8AB1512A895EC300AB2290 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
-		AFB01EE72A6197E400D1D721 /* SignInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
 		AFCDE0162A5F5C4B009227F9 /* HourlyHourTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HourlyHourTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCDE0192A5F5C4B009227F9 /* HourlyHourTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyHourTrackerApp.swift; sourceTree = "<group>"; };
 		AFCDE01B2A5F5C4B009227F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,7 +110,6 @@
 		AFCDE0842A5F64DC009227F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AFCDE0872A5F726C009227F9 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		AFCDE08A2A603C71009227F9 /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
-		AFCDE08C2A603D83009227F9 /* SignUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPage.swift; sourceTree = "<group>"; };
 		AFCDE08E2A603E8C009227F9 /* OrganizationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationPage.swift; sourceTree = "<group>"; };
 		AFCDE0922A603F36009227F9 /* CreateOrganizationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrganizationPage.swift; sourceTree = "<group>"; };
 		AFCDE0972A6046BE009227F9 /* sf-pro-display-cufonfonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "sf-pro-display-cufonfonts"; sourceTree = "<group>"; };
@@ -208,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				AF8AB1512A895EC300AB2290 /* ScanView.swift */,
+				AF79DD472AB120AF00077698 /* SubmissionViews.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -243,7 +238,6 @@
 				AFCDE0192A5F5C4B009227F9 /* HourlyHourTrackerApp.swift */,
 				AFCDE01B2A5F5C4B009227F9 /* ContentView.swift */,
 				AFCDE0842A5F64DC009227F9 /* GoogleService-Info.plist */,
-				AF2BEFC22AAE66BB00390EF7 /* GoogleService-Info.plist */,
 				AFCDE01D2A5F5C52009227F9 /* Assets.xcassets */,
 				AFCDE01F2A5F5C52009227F9 /* Preview Content */,
 			);
@@ -309,12 +303,9 @@
 			isa = PBXGroup;
 			children = (
 				AFCDE08A2A603C71009227F9 /* WelcomePage.swift */,
-				AFCDE08C2A603D83009227F9 /* SignUpPage.swift */,
 				AFCDE08E2A603E8C009227F9 /* OrganizationPage.swift */,
 				AFCDE0922A603F36009227F9 /* CreateOrganizationPage.swift */,
-				AFB01EE72A6197E400D1D721 /* SignInPage.swift */,
 				49F99F262A64FF6200244DBF /* JoinOrganizationPage.swift */,
-				AF2BEFBC2AAE5E1800390EF7 /* GoogleSignInButton.swift */,
 				AF2BEFBE2AAE5E6E00390EF7 /* GoogleLogInPage.swift */,
 			);
 			path = Onboarding;
@@ -469,7 +460,6 @@
 			files = (
 				AFCDE0212A5F5C52009227F9 /* Preview Assets.xcassets in Resources */,
 				AFCDE0982A6046BF009227F9 /* sf-pro-display-cufonfonts in Resources */,
-				AF2BEFC32AAE66BB00390EF7 /* GoogleService-Info.plist in Resources */,
 				AFCDE01E2A5F5C52009227F9 /* Assets.xcassets in Resources */,
 				AFCDE0852A5F64DD009227F9 /* GoogleService-Info.plist in Resources */,
 			);
@@ -496,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF79DD482AB120AF00077698 /* SubmissionViews.swift in Sources */,
 				AFCDE0932A603F37009227F9 /* CreateOrganizationPage.swift in Sources */,
 				AFCDE01C2A5F5C4B009227F9 /* ContentView.swift in Sources */,
 				AFCDE07F2A5F5EED009227F9 /* BaseStructs.swift in Sources */,
@@ -510,12 +501,9 @@
 				AFCDE0812A5F5F5B009227F9 /* DataBaseService.swift in Sources */,
 				49B997452A6C2D9B006EAC0E /* ReviewHoursPage.swift in Sources */,
 				AF2BEFBF2AAE5E6E00390EF7 /* GoogleLogInPage.swift in Sources */,
-				AF2BEFBD2AAE5E1800390EF7 /* GoogleSignInButton.swift in Sources */,
 				49936BEF2A69CEC700164A96 /* StudentPage.swift in Sources */,
-				AFB01EE82A6197E400D1D721 /* SignInPage.swift in Sources */,
 				49936BF12A69DCC700164A96 /* HourSubmissionPage.swift in Sources */,
 				AF2BEFBB2AAE542F00390EF7 /* AuthenticationViewModel.swift in Sources */,
-				AFCDE08D2A603D83009227F9 /* SignUpPage.swift in Sources */,
 				AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */,
 				49F99F272A64FF6200244DBF /* JoinOrganizationPage.swift in Sources */,
 			);
