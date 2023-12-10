@@ -222,6 +222,7 @@ struct DatabaseService {
                     let user = decodeUser(fromDictionary: userDoc.data())
                     if let user = user{
                         if user.email == email{
+                            print(user)
                             return user
                         }
                     }

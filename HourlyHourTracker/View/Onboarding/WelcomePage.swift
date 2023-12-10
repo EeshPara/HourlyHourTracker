@@ -27,7 +27,7 @@ struct WelcomePage: View {
                 Spacer()
                 //signup button
                 NavigationLink {
-                    GoogleLoginView()
+                    GoogleLoginPage()
                         .environmentObject(manager)
                 } label: {
                     ZStack{

@@ -12,7 +12,6 @@ class AppManager: ObservableObject {
     @Published var organization: Organization
     @Published var db : DatabaseService
     @Published var authViewModel = AuthenticationViewModel()
-    @Published var googleSignIn = GoogleSignIn()
     init(email: String, orgName: String) {
         account = User.empty
         organization = Organization.empty
