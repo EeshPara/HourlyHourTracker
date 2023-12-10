@@ -9,9 +9,19 @@ import SwiftUI
 
 struct OrgOwnerPage: View {
     @State var users = [User]()
+    @State var signedOut = false
     @EnvironmentObject var manager : AppManager
     var body: some View {
         VStack (alignment: .leading){
+            NavigationLink(isActive: $signedOut) {
+                ContentView()
+            } label: {
+                EmptyView()
+            }
+            Button("SignOut"){
+                manager.authViewModel.signOut()
+                signedOut = true
+            }
             Text(manager.organization.name)
                 .font(Font.custom("SF-Pro-Display-Bold", size: 40))
                 .foregroundColor(Color.black)

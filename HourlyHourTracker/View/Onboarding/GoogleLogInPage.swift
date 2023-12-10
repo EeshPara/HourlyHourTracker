@@ -28,10 +28,7 @@ struct GoogleLoginPage: View {
         }
         
       // 2
-      Image("header_image")
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-
+      
       Text("Welcome to Hour.ly!")
         .fontWeight(.black)
         .foregroundColor(Color(.systemIndigo))
@@ -50,21 +47,21 @@ struct GoogleLoginPage: View {
         .padding()
         .onTapGesture {
             Task{
-                manager.authViewModel.signIn()
-                if manager.authViewModel.state == .signedIn{
-                    await saveInfo()
-                    navigateToOrgs.toggle()
-                }
-                else if manager.authViewModel.state == .restoredSignIn{
-                   
-                    saveInfo()
-                    manager.account = try await manager.db.LoadUserFromEmail(email: manager.account.email) ?? User.empty
-                    manager.account.isAdmin = false
-                    navigateToMain.toggle()
-                }
+                 await manager.authViewModel.signIn()
+                try await loadUser()
+               
             }
         }
     }
+    .task{
+//     
+//            manager.authViewModel.signIn()
+//            if(manager.authViewModel.state == .restoredSignIn){
+//                toggle.toggle()
+//            }
+        
+    }
+ 
   }
     func saveInfo(){
         if let email = manager.authViewModel.googleAccount?.profile?.email {
@@ -73,10 +70,23 @@ struct GoogleLoginPage: View {
         if let name = manager.authViewModel.googleAccount?.profile?.name{
             manager.account.name = name
         }
-        
+        print("User's name is \(manager.account.name)")
      
-       
-        
+    }
+    
+    func loadUser() async throws{
+        print("Loading user")
+        saveInfo()
+        let currentUser = manager.account
+        manager.account = try await manager.db.LoadUserFromEmail(email: manager.account.email) ?? currentUser
+        print("Account is \(manager.account)")
+        if manager.account != currentUser{
+            navigateToMain.toggle()
+        }
+        else{
+            navigateToOrgs.toggle()
+        }
+     
     }
     
     
