@@ -17,6 +17,7 @@ struct HourSubmissionPage: View {
     @State private var showScannerSheet = false
     @State private var submissionImage : UIImage = UIImage()
     @State var submission: Submission = Submission.empty
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         NavigationStack
         {
@@ -90,6 +91,7 @@ struct HourSubmissionPage: View {
                             .foregroundColor(.gray)
                         Spacer()
                         Button{
+                            // show camera
                             showScannerSheet.toggle()
                         } label : {
                             Text("Add")
@@ -122,10 +124,10 @@ struct HourSubmissionPage: View {
                         }
                         else{
                             displayReasons()
-                        
+                            // uplaods the submission to the database
                             uploadSubmission()
                             // toggle navigation
-                            navigate.toggle()
+                            dismiss()
                             
                         }
                     } label: {
@@ -147,6 +149,7 @@ struct HourSubmissionPage: View {
         }
         
     }
+    //saving image
     private func makeScannerView()-> ScannerView {
         ScannerView { image in
             if let uiImage = image{
@@ -155,21 +158,31 @@ struct HourSubmissionPage: View {
             showScannerSheet.toggle()
         }
     }
+    // uplaoading submission
     private func uploadSubmission(){
         // appending the info and hours
         Task{
-            await saveImage()
+            //if there even is an image
+            if submissionImage != UIImage(){
+                //save the image
+                await saveImage()
+            }
+           
+            // update the accounts submission array locally
             manager.account.submissions.append(submission)
+            // update the hours locally
             manager.account.totalHours += submission.hours
             //updating in database
+            // update the user in the database with the current local user
             manager.db.updateUser(user: manager.account)
         }
     }
     private func saveImage() async{
+        // uploading image to firebase
        try await manager.db.uploadImageToFirebaseStorage(image: submissionImage, user: manager.account, submission: submission) { result in
             switch result {
               case .success(let value):
-              
+              // if it works then save the photourl to the submission photourl string
                     submission.photoFileURL = URL(string: value) ?? URL(string: "https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg")!
                 
               case .failure(let error):

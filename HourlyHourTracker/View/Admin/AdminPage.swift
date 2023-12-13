@@ -59,9 +59,12 @@ struct AdminPage: View {
                     }
                 }
                 .task {
+                    // loading users on the load of the page
                     if users.isEmpty{
                         do{
+                            // load all the users from the organization
                             let optionalusers = try await manager.db.loadUsers(organizationName: manager.account.organizationName)
+                            // unwraps the users that aren't optional
                             for user in optionalusers{
                                 if let userThatIsntNil = user{
                                     users.append(userThatIsntNil)
