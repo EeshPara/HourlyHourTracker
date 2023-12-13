@@ -6,21 +6,17 @@
 //
 
 import Foundation
-
+//The most important object in the app it organizes the app
 class AppManager: ObservableObject {
+    // the current user loaded in
     @Published var account: User
+    // the organization the user is apart of
     @Published var organization: Organization
+    //Database service obejct that allows us to easily call functions that allow us to interact with the database
     @Published var db : DatabaseService
+    //Authentication view
     @Published var authViewModel = AuthenticationViewModel()
-    init(email: String, orgName: String) {
-        account = User.empty
-        organization = Organization.empty
-        db = DatabaseService()
-        
-        Task.detached {
-            await self.loadInfo(email: email, orgName: orgName)
-        }
-    }
+ // empty 
     init(){
         account = User.empty
         organization = Organization.empty
@@ -31,15 +27,6 @@ class AppManager: ObservableObject {
         self.account = account
         self.organization = organization
         db = DatabaseService()
-    }
-    
-    private func loadInfo(email: String, orgName: String)async{
-        do {
-            self.account = try await DatabaseService().loadUser(email: email, orgName: orgName) ?? User.empty
-            self.organization = try await DatabaseService().loadOrganization(orgName: orgName) ?? Organization.empty
-        } catch {
-            print("Error loading user or organization: \(error)")
-        }
     }
     static let example = AppManager()
     static var testManager = AppManager(account: User.testUser, organization: Organization.testOrg)

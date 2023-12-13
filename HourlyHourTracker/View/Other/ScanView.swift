@@ -1,6 +1,7 @@
 import VisionKit
 import SwiftUI
 
+//scans a picture and saves it
 struct ScannerView: UIViewControllerRepresentable {
     
     private let completionHandler: (UIImage?) -> Void

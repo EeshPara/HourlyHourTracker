@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// submission viws inn student profile
+
 struct pending : View
 {
     @Binding var submission : Submission

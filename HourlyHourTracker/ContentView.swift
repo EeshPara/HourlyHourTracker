@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Declaring the app manager this will handle all the information on the app
     @StateObject var manager : AppManager = AppManager()
     var body: some View {
        WelcomePage()
