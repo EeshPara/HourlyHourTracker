@@ -24,29 +24,22 @@ struct GoogleLoginPage: View {
                   .foregroundColor(Color("burntsienna"))
               Spacer()
               //signup button
-              NavigationLink {
-                  GoogleLoginPage()
-                      .environmentObject(manager)
-              } label: {
                   ZStack{
                       Text("Sign Up  👋")
                           .foregroundColor(Color("darkgrey"))
                           .font(Font.custom("SF-Pro-Display-Regular", size : 24))
-                          RoundedRectangle(cornerRadius: 30)
-                                      .stroke(Color("lightgrey2"), lineWidth: 1)
-                                      .frame(width: 281, height: 65)
+                      RoundedRectangle(cornerRadius: 30)
+                          .stroke(Color("lightgrey2"), lineWidth: 1)
+                          .frame(width: 281, height: 65)
                   }
-              }
-              .padding()
-              .onTapGesture {
-                  Task{
-                       await manager.authViewModel.signIn()
-                      try await loadUser()
-                     
+                  .padding()
+                  .onTapGesture {
+                      Task{
+                           await manager.authViewModel.signIn()
+                          try await loadUser()
+                         
+                      }
                   }
-              }
-     
-             
           }
           .frame(maxWidth: .infinity, maxHeight: .infinity)
           .padding(40)
@@ -72,15 +65,6 @@ struct GoogleLoginPage: View {
         }
 
       // 3
-      GoogleSignInButton()
-        .padding()
-        .onTapGesture {
-            Task{
-                 await manager.authViewModel.signIn()
-                try await loadUser()
-               
-            }
-        }
     }
     .task{
 //     

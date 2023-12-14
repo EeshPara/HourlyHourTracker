@@ -59,6 +59,25 @@ struct StudentPage: View {
                                         .foregroundColor(Color("burntsienna"))
                                 )
                         }
+                        Spacer()
+                        NavigationLink() //account info button
+                        {
+                            HourSubmissionPage()
+                        }
+                    label:
+                        {
+                            Text("S")
+                                .font(Font.custom("SF-Pro-Display-Bold", size: 40))
+                                .foregroundColor(Color.white)
+                                .font(.largeTitle)
+                                .fontWeight(.heavy)
+                                .multilineTextAlignment(.leading)
+                                .background(
+                                    Circle()
+                                        .frame(width: 50.0, height: 50.0)
+                                        .foregroundColor(Color.purple)
+                                )
+                        }
                     }
                     .padding([.leading, .bottom, .trailing])
                     HStack

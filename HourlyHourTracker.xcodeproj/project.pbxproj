@@ -11,6 +11,7 @@
 		1CBE61CE2A6C5A6A00D33D54 /* OrgOwnerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE61CD2A6C5A6A00D33D54 /* OrgOwnerTabView.swift */; };
 		1CBE61D02A6C5F8300D33D54 /* AdminPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE61CF2A6C5F8300D33D54 /* AdminPage.swift */; };
 		1CBE61D62A6C803600D33D54 /* AdminStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBE61D52A6C803600D33D54 /* AdminStudentView.swift */; };
+		497420F42B2A83880043694E /* ViewAccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497420F32B2A83880043694E /* ViewAccountPage.swift */; };
 		49936BEF2A69CEC700164A96 /* StudentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49936BEE2A69CEC700164A96 /* StudentPage.swift */; };
 		49936BF12A69DCC700164A96 /* HourSubmissionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */; };
 		49B997452A6C2D9B006EAC0E /* ReviewHoursPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B997442A6C2D9B006EAC0E /* ReviewHoursPage.swift */; };
@@ -87,6 +88,7 @@
 		1CBE61CD2A6C5A6A00D33D54 /* OrgOwnerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgOwnerTabView.swift; sourceTree = "<group>"; };
 		1CBE61CF2A6C5F8300D33D54 /* AdminPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPage.swift; sourceTree = "<group>"; };
 		1CBE61D52A6C803600D33D54 /* AdminStudentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminStudentView.swift; sourceTree = "<group>"; };
+		497420F32B2A83880043694E /* ViewAccountPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAccountPage.swift; sourceTree = "<group>"; };
 		49936BEE2A69CEC700164A96 /* StudentPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentPage.swift; sourceTree = "<group>"; };
 		49936BF02A69DCC700164A96 /* HourSubmissionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourSubmissionPage.swift; sourceTree = "<group>"; };
 		49B997442A6C2D9B006EAC0E /* ReviewHoursPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHoursPage.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				AF8AB1512A895EC300AB2290 /* ScanView.swift */,
 				AF79DD472AB120AF00077698 /* SubmissionViews.swift */,
+				497420F32B2A83880043694E /* ViewAccountPage.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				49936BEF2A69CEC700164A96 /* StudentPage.swift in Sources */,
 				49936BF12A69DCC700164A96 /* HourSubmissionPage.swift in Sources */,
 				AF2BEFBB2AAE542F00390EF7 /* AuthenticationViewModel.swift in Sources */,
+				497420F42B2A83880043694E /* ViewAccountPage.swift in Sources */,
 				AFCDE01A2A5F5C4B009227F9 /* HourlyHourTrackerApp.swift in Sources */,
 				49F99F272A64FF6200244DBF /* JoinOrganizationPage.swift in Sources */,
 			);
