@@ -45,6 +45,7 @@ struct WelcomePage: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(40)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

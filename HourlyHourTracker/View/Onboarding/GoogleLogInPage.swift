@@ -83,6 +83,9 @@ struct GoogleLoginPage: View {
         if manager.account != currentUser{
             navigateToMain.toggle()
         }
+        else if manager.account == User.empty{
+           print("User canceled log in flow")
+        }
         else{
             navigateToOrgs.toggle()
         }
